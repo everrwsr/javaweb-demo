@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="test">
-    <select id="selectAll" resultType="User">
+<mapper namespace="mapper.UserMapper">
+    <select id="selectAll" resultType="pojo.User">
         select * from tb_user;
     </select>
 </mapper>

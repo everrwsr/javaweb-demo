@@ -1,9 +1,13 @@
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import pojo.User;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * description :
@@ -20,6 +24,12 @@ public class MybatisDemo {
 
 
         //2获取sqlSession 对象，用它执行sql
-        sqlSession.selectAll("test.selectAll");
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        // 3. 执行sql
+        List<User> users = sqlSession.selectList("test.selectAll");
+        System.out.println(users);
+        //释放
+sqlSession.close();
     }
 }
