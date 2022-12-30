@@ -1,10 +1,15 @@
+package com.everr;
+
+import com.everr.mapper.BrandMapper;
+import com.everr.pojo.Brand;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import pojo.User;
 
-import javax.swing.*;
+
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -13,10 +18,11 @@ import java.util.List;
  * description :
  *
  * @author: everr
- * @date: 2022/12/30 19:53
+ * @date: 2022/12/30 21:48
  **/
-public class MybatisDemo {
-    public static void main(String[] args) throws IOException {
+public class MybatisTest {
+@Test
+    public void testSelectAll() throws IOException {
         //1、加载mybatis配置文件，
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -26,10 +32,14 @@ public class MybatisDemo {
         //2获取sqlSession 对象，用它执行sql
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
+
         // 3. 执行sql
-        List<User> users = sqlSession.selectList("test.selectAll");
-        System.out.println(users);
+        //List<User> users = sqlSession.selectList("test.selectAll");
+        BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
+        List<Brand> brands = brandMapper.selectAll();
+
+        System.out.println(brands);
         //释放
-sqlSession.close();
+        sqlSession.close();
     }
 }

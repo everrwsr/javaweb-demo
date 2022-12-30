@@ -1,9 +1,11 @@
-import mapper.UserMapper;
+package com.everr;
+
+import com.everr.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import pojo.User;
+import com.everr.pojo.User;
 
 import java.io.IOException;
 import java.io.InputStream;

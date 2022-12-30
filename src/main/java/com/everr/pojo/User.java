@@ -1,4 +1,4 @@
-package pojo;
+package com.everr.pojo;
 
 /**
  * description :
