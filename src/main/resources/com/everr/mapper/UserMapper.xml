@@ -6,7 +6,7 @@
     <select id="selectAll" resultType="com.everr.pojo.User">
         select * from tb_user;
     </select>
-    <select id="selectById" resultType="com.everr.pojo.User">
-        select  * from tb_user where id = #{id};
-    </select>
+<!--    <select id="selectById" resultType="com.everr.pojo.User">-->
+<!--        select  * from tb_user where id = #{id};-->
+<!--    </select>-->
 </mapper>

@@ -20,6 +20,7 @@ public interface BrandMapper {
 
     /**
      * id 查询
+     *
      * @param id
      * @return
      */
@@ -27,6 +28,7 @@ public interface BrandMapper {
 
     /**
      * 条件查询
+     *
      * @param status
      * @param companyName
      * @param brandName
@@ -36,4 +38,36 @@ public interface BrandMapper {
 //    List<Brand> selectByCondition(Brand brand);
     List<Brand> selectByCondition(Map map);
 
+    /**
+     * 单条件动态查询
+     *
+     * @param brand
+     * @return
+     */
+    List<Brand> selectByConditionSingle(Brand brand);
+
+    /**
+     * 添加
+     *
+     * @param brand
+     */
+    void add(Brand brand);
+
+    /**
+     * 修改
+     */
+    int update(Brand brand);
+
+    /**
+     * 删除
+     *
+     * @param id
+     */
+    void deleteById(int id);
+
+
+    /**
+     * 批量删除
+     */
+    void deleteByIds(@Param("ids") int[] ids);
 }

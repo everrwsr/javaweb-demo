@@ -1,6 +1,7 @@
 package com.everr.mapper;
 
 import com.everr.pojo.User;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,5 +14,6 @@ import java.util.List;
  */
 public interface UserMapper {
     List<User> selectAll();
+    @Select("select * from tb_user where id = #{id}")
     List<User> selectById(int id);
 }
